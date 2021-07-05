@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+			<div class="container">
+					<table id="id_table" class="table table-striped table-bordered" style="width:100%">
+						<thead>
+							<tr>
+								<th class="text-center">Name</th>
+								<th class="text-center">Forname</th>
+								<th class="text-center">Telephone</th>
+								<th class="text-center"></th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for student in studentData %}
+								<tr>
+									<td class="text-center">{{ student.name }}</td>
+									<td class="text-center">{{ student.forname }}</td>
+									<td class="text-center">{{ student.telephone }}</td>
+									
+									<td>
+										<div>
+											<a href="{{ path('modify', {'id': student.id }) }}" class="col-sm-5 btn btn-primary" role="button">Modify</a>
+										<div>
+										<div>
+											<a href="{{ path('modify', {'id': student.id }) }}" class="col-lg-offset-2 col-sm-5 btn btn-danger" role="button">Delete</a>
+										</div>
+									</td>
+
+									</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+</div>
+{% endblock %}
